@@ -28,6 +28,11 @@ export default function useOrder() {
         setOrder((prev) => prev.filter(item => item.id !== id));
     }; 
 
+    const placeOrder = () => {
+       setOrder([]);
+       setTip(0);
+    }
+
     useEffect(() => {
         const newTotal = order.reduce((acc, item) => acc + item.price * item.quantity, 0);
         setTotal(newTotal);
@@ -40,6 +45,7 @@ export default function useOrder() {
         total,
         tip,
         setTip,
-        removeItem
+        removeItem,
+        placeOrder
     };
 }
